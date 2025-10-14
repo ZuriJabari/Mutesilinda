@@ -22,14 +22,10 @@
                     <div class="relative w-full max-w-md mx-auto lg:max-w-none aspect-square">
                         <div class="absolute inset-0 bg-gradient-to-br from-rose-100 to-pink-100 rounded-full"></div>
                         <img 
-                            src="/images/linda-hero.jpg" 
+                            src="/images/linda-hero.png" 
                             alt="Linda Mutesi" 
                             class="relative z-10 w-full h-full object-cover rounded-full"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                         />
-                        <div class="hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-rose-100 to-pink-100 rounded-full">
-                            <span class="text-6xl">👩🏾‍💼</span>
-                        </div>
                     </div>
                 </div>
             </div>
