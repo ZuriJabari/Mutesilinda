@@ -80,8 +80,7 @@ class BlogPostResource extends Resource
                                 'source',
                                 '|',
                                 'blocks',
-                                'typography',
-                                'text-color',
+                                'color',
                                 'highlight',
                             ])
                             ->disk('public')
