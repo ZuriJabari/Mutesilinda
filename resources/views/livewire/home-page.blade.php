@@ -35,9 +35,9 @@
     {{-- Mobile-optimized quick-links --}}
     <section class="w-full bg-gradient-to-b from-[#F6F1EE] to-[#F3EEE9]" x-data="{ emailRevealed: false }">
         <div class="w-full">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-stretch text-center text-gray-900">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-stretch text-center text-gray-900 gap-0">
                 {{-- Column 1 - Affiliations --}}
-                <div class="md:border-r md:border-gray-200/60 border-b sm:border-b-0 md:border-b border-gray-200/60 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="#affiliations" class="relative block h-full w-full flex flex-col items-center justify-center">
                         <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-rose-700 transition-all duration-300 font-medium">Affiliations</span>
@@ -46,7 +46,7 @@
                 </div>
 
                 {{-- Column 2 - Thinking About --}}
-                <div class="md:border-r md:border-gray-200/60 border-b sm:border-b-0 md:border-b border-gray-200/60 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#EDE8F0] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#EDE8F0] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="/blog" class="relative block h-full w-full flex flex-col items-center justify-center">
                         <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-purple-700 transition-all duration-300 font-medium">Thinking About</span>
@@ -55,7 +55,7 @@
                 </div>
 
                 {{-- Column 3 - Research Interests --}}
-                <div class="md:border-r md:border-gray-200/60 border-b sm:border-b-0 md:border-b border-gray-200/60 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#E7EFEA] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#E7EFEA] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="/research-interests" class="relative block h-full w-full flex flex-col items-center justify-center">
                         <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-green-700 transition-all duration-300 font-medium">Research Interests</span>
