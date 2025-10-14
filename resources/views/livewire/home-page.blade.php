@@ -1,8 +1,8 @@
 <div>
     {{-- Hero Section --}}
     <section class="relative bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-28">
-            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-8 pb-4 sm:pb-6 lg:pb-0">
+            <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-center pt-2 lg:pt-3 pb-0">
                 {{-- Text Content --}}
                 <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1">
                     {{-- Hero Title with mobile-optimized sizes --}}
