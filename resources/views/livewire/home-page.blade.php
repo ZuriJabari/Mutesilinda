@@ -20,11 +20,10 @@
                 {{-- Image --}}
                 <div class="lg:col-span-6 order-1 lg:order-2">
                     <div class="relative w-full max-w-md mx-auto lg:max-w-none aspect-square">
-                        <div class="absolute inset-0 bg-gradient-to-br from-rose-100 to-pink-100 rounded-full"></div>
                         <img 
                             src="/images/linda-hero.png" 
                             alt="Linda Mutesi" 
-                            class="relative z-10 w-full h-full object-cover rounded-full"
+                            class="relative z-10 w-full h-full object-cover"
                         />
                     </div>
                 </div>
