@@ -19,11 +19,11 @@
 
                 {{-- Image --}}
                 <div class="lg:col-span-6 order-1 lg:order-2">
-                    <div class="relative w-full max-w-md mx-auto lg:max-w-none aspect-square">
+                    <div class="relative w-full max-w-md mx-auto lg:max-w-none">
                         <img 
                             src="/images/linda-hero.png" 
                             alt="Linda Mutesi" 
-                            class="relative z-10 w-full h-full object-cover"
+                            class="w-full h-auto object-contain"
                         />
                     </div>
                 </div>
