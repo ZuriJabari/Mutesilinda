@@ -59,7 +59,7 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="/research-interests" class="relative block h-full w-full flex flex-col items-center justify-center">
                         <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-green-700 transition-all duration-300 font-semibold">Research</span>
-                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-all duration-300 transform group-hover:scale-105">Areas of Inquiry</span>
+                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-all duration-300 transform group-hover:scale-105">Research Interests</span>
                     </a>
                 </div>
 
