@@ -6,15 +6,14 @@ This guide will set up automatic deployment so every push to GitHub deploys to d
 
 ## Step 1: cPanel Initial Setup
 
-### 1.1 Create Subdomain
-1. Login to cPanel
-2. Go to **Domains** → **Subdomains**
-3. Create subdomain: `dev`
-4. Document root: `/public_html/dev`
+### 1.1 Subdomain (Already Created ✅)
+Your subdomain is already set up:
+- Subdomain: `dev.mutesilinda.com`
+- Document root: `/public_html/MutesiDev`
 
 ### 1.2 Upload Files Manually (First Time)
 1. In cPanel, go to **File Manager**
-2. Navigate to `/public_html/dev/`
+2. Navigate to `/public_html/MutesiDev/`
 3. Upload all files from your local project EXCEPT:
    - `node_modules/`
    - `vendor/`
@@ -23,7 +22,7 @@ This guide will set up automatic deployment so every push to GitHub deploys to d
    - `.git/`
 
 ### 1.3 Create .env File on Server
-1. In File Manager, navigate to `/public_html/dev/`
+1. In File Manager, navigate to `/public_html/MutesiDev/`
 2. Create new file: `.env`
 3. Copy content from `.env.example` and update:
 
@@ -51,11 +50,13 @@ MAIL_FROM_ADDRESS=linda@mutesilinda.com
 MAIL_FROM_NAME="Mutesilinda"
 ```
 
-### 1.4 Set Document Root
+### 1.4 Update Document Root
 1. In cPanel, go to **Domains**
 2. Click on `dev.mutesilinda.com`
-3. Set Document Root to: `/public_html/dev/public`
+3. Update Document Root to: `/public_html/MutesiDev/public`
 4. Save changes
+
+**Important:** The document root must point to the `/public` folder inside MutesiDev!
 
 ### 1.5 Create MySQL Database
 1. Go to **MySQL Databases**
@@ -66,7 +67,7 @@ MAIL_FROM_NAME="Mutesilinda"
 
 ### 1.6 Run Initial Setup via Terminal/SSH
 ```bash
-cd public_html/dev
+cd public_html/MutesiDev
 composer install --optimize-autoloader --no-dev
 php artisan key:generate
 php artisan migrate --force

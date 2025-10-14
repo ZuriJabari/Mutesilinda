@@ -5,8 +5,8 @@
 ### 1. cPanel Setup (10 min)
 
 **In cPanel:**
-- [ ] Create subdomain: `dev.mutesilinda.com`
-- [ ] Set document root: `/public_html/dev/public`
+- [x] Subdomain already created: `dev.mutesilinda.com`
+- [ ] Update document root to: `/public_html/MutesiDev/public`
 - [ ] Create MySQL database: `mutesilinda_dev`
 - [ ] Create database user with strong password
 - [ ] Grant ALL PRIVILEGES to user
@@ -21,13 +21,13 @@ Database Pass: _________________
 ### 2. Upload Files (5 min)
 
 **Via cPanel File Manager:**
-- [ ] Go to `/public_html/dev/`
+- [ ] Go to `/public_html/MutesiDev/`
 - [ ] Upload project files (or use FTP client)
 - [ ] DO NOT upload: `node_modules/`, `vendor/`, `.env`, `.git/`
 
 ### 3. Configure .env (5 min)
 
-**Create `/public_html/dev/.env`:**
+**Create `/public_html/MutesiDev/.env`:**
 ```env
 APP_NAME="Mutesilinda Dev"
 APP_ENV=production
@@ -56,7 +56,7 @@ MAIL_FROM_NAME="Mutesilinda"
 
 **Via cPanel Terminal or SSH:**
 ```bash
-cd public_html/dev
+cd public_html/MutesiDev
 composer install --no-dev --optimize-autoloader
 php artisan key:generate
 php artisan migrate --force
