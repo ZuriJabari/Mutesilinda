@@ -37,8 +37,8 @@
 
             {{-- Article Content --}}
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div class="prose prose-lg max-w-none">
-                    {!! nl2br(e($post->content)) !!}
+                <div class="prose prose-lg prose-headings:font-bold prose-a:text-rose-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg max-w-none">
+                    {!! $post->content !!}
                 </div>
             </div>
 

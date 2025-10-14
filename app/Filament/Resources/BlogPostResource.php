@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use FilamentTiptapEditor\TiptapEditor;
+use FilamentTiptapEditor\Enums\TiptapOutput;
 
 class BlogPostResource extends Resource
 {
@@ -23,24 +25,118 @@ class BlogPostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required(),
-                Forms\Components\TextInput::make('slug')
-                    ->required(),
-                Forms\Components\TextInput::make('subtitle'),
-                Forms\Components\Textarea::make('excerpt')
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('content')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\FileUpload::make('featured_image')
-                    ->image(),
-                Forms\Components\Toggle::make('is_published')
-                    ->required(),
-                Forms\Components\DateTimePicker::make('published_at'),
-                Forms\Components\TextInput::make('meta_title'),
-                Forms\Components\Textarea::make('meta_description')
-                    ->columnSpanFull(),
+                Forms\Components\Section::make('Content')
+                    ->schema([
+                        Forms\Components\TextInput::make('title')
+                            ->required()
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->required()
+                            ->unique(ignoreRecord: true)
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('subtitle')
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        Forms\Components\Textarea::make('excerpt')
+                            ->rows(3)
+                            ->maxLength(500)
+                            ->columnSpanFull(),
+                        TiptapEditor::make('content')
+                            ->required()
+                            ->profile('default')
+                            ->tools([
+                                'heading',
+                                'bullet-list',
+                                'ordered-list',
+                                'checked-list',
+                                'blockquote',
+                                'hr',
+                                '|',
+                                'bold',
+                                'italic',
+                                'strike',
+                                'underline',
+                                'superscript',
+                                'subscript',
+                                'lead',
+                                'small',
+                                '|',
+                                'link',
+                                'media',
+                                'oembed',
+                                '|',
+                                'align-left',
+                                'align-center',
+                                'align-right',
+                                '|',
+                                'table',
+                                'grid',
+                                'details',
+                                '|',
+                                'code',
+                                'code-block',
+                                'source',
+                                '|',
+                                'blocks',
+                                'typography',
+                                'text-color',
+                                'highlight',
+                            ])
+                            ->disk('public')
+                            ->directory('blog-images')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'])
+                            ->maxFileSize(5120)
+                            ->output(TiptapOutput::Html)
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2),
+                
+                Forms\Components\Section::make('Media')
+                    ->schema([
+                        Forms\Components\FileUpload::make('featured_image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('featured-images')
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ])
+                            ->maxSize(5120)
+                            ->columnSpanFull(),
+                    ]),
+                
+                Forms\Components\Section::make('Publishing')
+                    ->schema([
+                        Forms\Components\Toggle::make('is_published')
+                            ->label('Published')
+                            ->default(false)
+                            ->inline(false),
+                        Forms\Components\DateTimePicker::make('published_at')
+                            ->label('Publish Date')
+                            ->default(now())
+                            ->required(),
+                    ])
+                    ->columns(2),
+                
+                Forms\Components\Section::make('SEO')
+                    ->schema([
+                        Forms\Components\TextInput::make('meta_title')
+                            ->label('Meta Title')
+                            ->maxLength(60)
+                            ->helperText('Recommended: 50-60 characters'),
+                        Forms\Components\Textarea::make('meta_description')
+                            ->label('Meta Description')
+                            ->rows(3)
+                            ->maxLength(160)
+                            ->helperText('Recommended: 150-160 characters')
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2)
+                    ->collapsed(),
             ]);
     }
 
