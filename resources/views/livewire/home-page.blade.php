@@ -1,29 +1,30 @@
 <div>
     {{-- Hero Section --}}
-    <section class="relative bg-white overflow-hidden">
+    <section class="relative bg-gradient-to-b from-white via-white to-gray-50/30 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-8 pb-4 sm:pb-6 lg:pb-0">
             <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-center pt-2 lg:pt-3 pb-0">
                 {{-- Text Content --}}
-                <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1">
+                <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1 animate-fadeIn">
                     {{-- Hero Title with mobile-optimized sizes --}}
                     <h1 class="font-serif font-semibold -tracking-[0.01em] leading-[0.85] sm:leading-tight">
-                        <span class="block text-[27px] sm:text-[36px] md:text-[45px] lg:text-[54px] xl:text-[63px]">Hello, I'm</span>
-                        <span class="block text-[36px] sm:text-[45px] md:text-[54px] lg:text-[63px] xl:text-[72px] 2xl:text-[79px] mt-1 sm:mt-2">Linda Mutesi!</span>
+                        <span class="block text-[27px] sm:text-[36px] md:text-[45px] lg:text-[54px] xl:text-[63px] text-gray-800">Hello, I'm</span>
+                        <span class="block text-[36px] sm:text-[45px] md:text-[54px] lg:text-[63px] xl:text-[72px] 2xl:text-[79px] mt-1 sm:mt-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">Linda Mutesi!</span>
                     </h1>
 
                     {{-- Hero Subtitle --}}
-                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto lg:mx-0 px-2 sm:px-0">
+                    <p class="text-base sm:text-lg md:text-xl lg:text-[22px] text-gray-600 leading-relaxed max-w-4xl mx-auto lg:mx-0 px-2 sm:px-0 font-light">
                         I work with artists, entrepreneurs, and civic leaders to grow opportunity across Uganda and beyond — nurturing creativity, championing women‑ and youth‑led enterprises, and advancing African philanthropy. This blog is where I bring these journeys together — reflections, behind‑the‑scenes insights, and conversations with fellow creatives. I invite you to join me on this journey.
                     </p>
                 </div>
 
                 {{-- Image --}}
                 <div class="lg:col-span-6 order-1 lg:order-2">
-                    <div class="relative w-full max-w-md mx-auto lg:max-w-none">
+                    <div class="relative w-full max-w-md mx-auto lg:max-w-none group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-rose-100/40 via-pink-100/40 to-purple-100/40 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <img 
                             src="/images/linda-hero.png" 
                             alt="Linda Mutesi" 
-                            class="w-full h-auto object-contain"
+                            class="relative w-full h-auto object-contain transform transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                     </div>
                 </div>
@@ -32,44 +33,48 @@
     </section>
 
     {{-- Mobile-optimized quick-links --}}
-    <section class="w-full bg-[#F6F1EE]" x-data="{ emailRevealed: false }">
+    <section class="w-full bg-gradient-to-b from-[#F6F1EE] to-[#F3EEE9]" x-data="{ emailRevealed: false }">
         <div class="w-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-stretch text-center text-gray-900">
                 {{-- Column 1 - Affiliations --}}
-                <div class="md:border-r md:border-gray-200 border-b sm:border-b-0 md:border-b border-gray-200 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-300 bg-[#F3EEE9] hover:bg-[#EAE4DE] h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group">
-                    <a href="#affiliations" class="block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.28em] uppercase text-gray-600 group-hover:text-gray-900 transition-colors">Affiliations</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-rose-800 transition-colors">Organizations I Work With</span>
+                <div class="md:border-r md:border-gray-200/60 border-b sm:border-b-0 md:border-b border-gray-200/60 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <a href="#affiliations" class="relative block h-full w-full flex flex-col items-center justify-center">
+                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-rose-700 transition-all duration-300 font-medium">Affiliations</span>
+                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-rose-800 transition-all duration-300 transform group-hover:scale-105">Organizations I Work With</span>
                     </a>
                 </div>
 
                 {{-- Column 2 - Thinking About --}}
-                <div class="md:border-r md:border-gray-200 border-b sm:border-b-0 md:border-b border-gray-200 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-300 bg-[#EDE8F0] hover:bg-[#E7E1EC] h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group">
-                    <a href="/blog" class="block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.28em] uppercase text-gray-600 group-hover:text-gray-900 transition-colors">Thinking About</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-purple-800 transition-colors">Reflections & Insights</span>
+                <div class="md:border-r md:border-gray-200/60 border-b sm:border-b-0 md:border-b border-gray-200/60 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#EDE8F0] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <a href="/blog" class="relative block h-full w-full flex flex-col items-center justify-center">
+                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-purple-700 transition-all duration-300 font-medium">Thinking About</span>
+                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-purple-800 transition-all duration-300 transform group-hover:scale-105">Reflections & Insights</span>
                     </a>
                 </div>
 
                 {{-- Column 3 - Research Interests --}}
-                <div class="md:border-r md:border-gray-200 border-b sm:border-b-0 md:border-b border-gray-200 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-300 bg-[#E7EFEA] hover:bg-[#DFEAE5] h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group">
-                    <a href="/research-interests" class="block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.28em] uppercase text-gray-600 group-hover:text-gray-900 transition-colors">Research Interests</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-colors">Academic Focus Areas</span>
+                <div class="md:border-r md:border-gray-200/60 border-b sm:border-b-0 md:border-b border-gray-200/60 px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#E7EFEA] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <a href="/research-interests" class="relative block h-full w-full flex flex-col items-center justify-center">
+                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-green-700 transition-all duration-300 font-medium">Research Interests</span>
+                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-all duration-300 transform group-hover:scale-105">Academic Focus Areas</span>
                     </a>
                 </div>
 
                 {{-- Column 4 - Get in Touch with Email Reveal --}}
-                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-300 bg-[#F3EEE9] hover:bg-[#EAE4DE] h-full text-center flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px]">
-                    <div class="block h-full w-full max-w-sm flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.28em] uppercase text-gray-600">Get in Touch</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight px-2">Let's Connect</span>
+                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full text-center flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative block h-full w-full max-w-sm flex flex-col items-center justify-center">
+                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-pink-700 transition-all duration-300 font-medium">Get in Touch</span>
+                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-pink-800 transition-all duration-300 transform group-hover:scale-105">Let's Connect</span>
 
                         <div class="mt-4 sm:mt-5 w-full">
                             <template x-if="!emailRevealed">
                                 <button
                                     @click="emailRevealed = true"
-                                    class="group relative w-full px-4 sm:px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white font-medium text-sm sm:text-base hover:from-rose-700 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-0.5 min-h-[44px] overflow-hidden"
+                                    class="group relative w-full px-4 sm:px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white font-medium text-sm sm:text-base hover:shadow-xl hover:shadow-rose-500/30 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 min-h-[44px] overflow-hidden"
                                 >
                                     <span class="relative z-10 flex items-center justify-center gap-2">
                                         <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +82,8 @@
                                         </svg>
                                         Send Me an Email
                                     </span>
-                                    <span class="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                                    <span class="absolute inset-0 bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                                    <span class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                                 </button>
                             </template>
                             <template x-if="emailRevealed">
@@ -108,21 +114,21 @@
 
     {{-- Featured Article Section --}}
     @if($featuredPost)
-    <section class="py-12 sm:py-16 bg-white">
+    <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6 sm:mb-8 md:text-left text-center">
-                <div class="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-gray-500">Featured</div>
-                <h2 class="mt-1 text-xl sm:text-2xl md:text-3xl font-extrabold text-black">Latest Article</h2>
-                <div class="mt-2 h-px w-12 bg-black/60 md:ml-0 mx-auto"></div>
+            <div class="mb-8 sm:mb-10 md:text-left text-center">
+                <div class="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-gray-500 font-medium">Featured</div>
+                <h2 class="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Latest Article</h2>
+                <div class="mt-3 h-0.5 w-16 bg-gradient-to-r from-rose-600 to-pink-600 md:ml-0 mx-auto rounded-full"></div>
             </div>
 
             <div class="grid md:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
                 {{-- Featured card (left) --}}
                 <div class="md:col-span-7">
-                    <article class="group bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1">
+                    <article class="group bg-white border border-gray-200/60 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gray-900/10">
                         @if($featuredPost->featured_image)
                             <a href="/blog/{{ $featuredPost->slug }}" class="block">
-                                <img src="{{ $featuredPost->featured_image }}" alt="{{ $featuredPost->title }}" class="w-full h-64 md:h-80 object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+                                <img src="{{ $featuredPost->featured_image }}" alt="{{ $featuredPost->title }}" class="w-full h-64 md:h-80 object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
                             </a>
                         @else
                             <div class="w-full h-40 md:h-56 bg-gray-100 flex items-center justify-center text-gray-400 text-[18px]">Image coming soon</div>
@@ -131,8 +137,8 @@
                             @if($featuredPost->published_at)
                                 <time class="text-xs uppercase tracking-[0.25em] text-gray-500">{{ $featuredPost->published_at->format('F j, Y') }}</time>
                             @endif
-                            <h3 class="mt-3 text-2xl md:text-3xl font-bold text-black leading-tight">
-                                <a href="/blog/{{ $featuredPost->slug }}" class="hover:underline">{{ $featuredPost->title }}</a>
+                            <h3 class="mt-3 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+                                <a href="/blog/{{ $featuredPost->slug }}" class="hover:text-rose-700 transition-colors duration-300">{{ $featuredPost->title }}</a>
                             </h3>
                             @if($featuredPost->subtitle)
                                 <p class="mt-2 text-lg text-gray-600">{{ $featuredPost->subtitle }}</p>
@@ -141,9 +147,9 @@
                                 <p class="mt-4 text-gray-700 leading-relaxed">{{ Str::limit($featuredPost->excerpt, 200) }}</p>
                             @endif
                             <div class="mt-6">
-                                <a href="/blog/{{ $featuredPost->slug }}" class="inline-flex items-center gap-2 text-black font-semibold hover:underline">
+                                <a href="/blog/{{ $featuredPost->slug }}" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium hover:shadow-lg hover:shadow-gray-900/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105">
                                     Read More
-                                    <span aria-hidden="true">→</span>
+                                    <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">→</span>
                                 </a>
                             </div>
                         </div>
@@ -159,10 +165,10 @@
                         <div class="mt-2 h-px w-12 bg-black/60 mx-auto md:ml-0"></div>
                     </div>
                     
-                    <ul class="bg-white border border-gray-200 rounded-lg divide-y divide-gray-200">
+                    <ul class="bg-white border border-gray-200/60 rounded-2xl divide-y divide-gray-200/60 shadow-sm hover:shadow-md transition-shadow duration-300">
                         @foreach($recentPosts as $post)
                             <li class="group">
-                                <a href="/blog/{{ $post->slug }}" class="flex items-start gap-4 p-5 md:p-6 transition-all duration-200 hover:bg-gray-50">
+                                <a href="/blog/{{ $post->slug }}" class="flex items-start gap-4 p-5 md:p-6 transition-all duration-300 hover:bg-gradient-to-r hover:from-gray-50 hover:to-white">
                                     <div class="flex-1">
                                         <h4 class="text-base md:text-lg font-medium text-black group-hover:underline">{{ $post->title }}</h4>
                                         @if($post->subtitle)
