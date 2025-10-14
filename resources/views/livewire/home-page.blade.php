@@ -40,8 +40,8 @@
                 <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="#affiliations" class="relative block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-rose-700 transition-all duration-300 font-medium">Affiliations</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-rose-800 transition-all duration-300 transform group-hover:scale-105">Organizations I Work With</span>
+                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-rose-700 transition-all duration-300 font-semibold">Affiliations</span>
+                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-rose-800 transition-all duration-300 transform group-hover:scale-105">Organizations I Work With</span>
                     </a>
                 </div>
 
@@ -49,8 +49,8 @@
                 <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#EDE8F0] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="/blog" class="relative block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-purple-700 transition-all duration-300 font-medium">Thinking About</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-purple-800 transition-all duration-300 transform group-hover:scale-105">Reflections & Insights</span>
+                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-purple-700 transition-all duration-300 font-semibold">Thinking About</span>
+                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-purple-800 transition-all duration-300 transform group-hover:scale-105">Reflections & Insights</span>
                     </a>
                 </div>
 
@@ -58,8 +58,8 @@
                 <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#E7EFEA] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <a href="/research-interests" class="relative block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-green-700 transition-all duration-300 font-medium">Research Interests</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-all duration-300 transform group-hover:scale-105">Academic Focus Areas</span>
+                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-green-700 transition-all duration-300 font-semibold">Research</span>
+                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-all duration-300 transform group-hover:scale-105">Areas of Inquiry</span>
                     </a>
                 </div>
 
@@ -67,8 +67,8 @@
                 <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full text-center flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative block h-full w-full max-w-sm flex flex-col items-center justify-center">
-                        <span class="block text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] uppercase text-gray-500 group-hover:text-pink-700 transition-all duration-300 font-medium">Get in Touch</span>
-                        <span class="mt-2 sm:mt-3 block font-serif text-base sm:text-lg md:text-[19px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-pink-800 transition-all duration-300 transform group-hover:scale-105">Let's Connect</span>
+                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-pink-700 transition-all duration-300 font-semibold">Get in Touch</span>
+                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-pink-800 transition-all duration-300 transform group-hover:scale-105">Let's Connect</span>
 
                         <div class="mt-4 sm:mt-5 w-full">
                             <template x-if="!emailRevealed">
