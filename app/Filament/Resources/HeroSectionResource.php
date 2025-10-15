@@ -45,18 +45,13 @@ class HeroSectionResource extends Resource
                     ->directory('hero-images')
                     ->disk('public')
                     ->visibility('public')
-                    ->imageEditor()
-                    ->imageEditorAspectRatios([
-                        null,
-                        '16:9',
-                        '4:3',
-                        '1:1',
-                    ])
                     ->maxSize(5120)
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg'])
-                    ->helperText('Upload a hero image (max 5MB). Recommended size: 1200x800px. Formats: JPG, PNG, WebP')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                    ->optimize('webp')
+                    ->resize(50)
+                    ->helperText('Upload a hero image (max 5MB). Will be optimized automatically.')
                     ->columnSpanFull()
-                    ->required(false),
+                    ->nullable(),
                 Forms\Components\TextInput::make('order')
                     ->numeric()
                     ->default(0)
