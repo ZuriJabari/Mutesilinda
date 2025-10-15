@@ -17,6 +17,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\BlogPostResource;
+use App\Filament\Resources\PageResource;
 use App\Filament\Resources\HeroSectionResource;
 use App\Filament\Resources\MenuItemResource;
 use App\Filament\Resources\QuickLinkResource;
@@ -35,6 +37,8 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->resources([
+                BlogPostResource::class,
+                PageResource::class,
                 HeroSectionResource::class,
                 MenuItemResource::class,
                 QuickLinkResource::class,
