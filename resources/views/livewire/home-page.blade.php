@@ -7,8 +7,8 @@
                 <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1 animate-fadeIn">
                     {{-- Hero Title with mobile-optimized sizes --}}
                     <h1 class="font-serif font-normal -tracking-[0.01em] leading-[0.85] sm:leading-tight">
-                        <span class="block text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] xl:text-[54px] text-gray-700">Hello, I'm</span>
-                        <span class="block text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[70px] mt-1 sm:mt-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent font-medium">Linda Mutesi!</span>
+                        <span class="block text-[26px] sm:text-[34px] md:text-[42px] lg:text-[50px] xl:text-[58px] text-gray-700">Hello, I'm</span>
+                        <span class="block text-[34px] sm:text-[42px] md:text-[50px] xl:text-[66px] 2xl:text-[72px] mt-1 sm:mt-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent font-medium">Linda Mutesi!</span>
                     </h1>
 
                     {{-- Hero Subtitle --}}
