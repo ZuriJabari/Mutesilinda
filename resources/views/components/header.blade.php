@@ -23,44 +23,11 @@
 class="relative z-[100] transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20">
-            <!-- Logo - Luxurious & Feminine Design -->
+            <!-- Logo - Simple & Elegant -->
             <a href="/" class="flex-shrink-0 select-none py-2 group" aria-label="Mutesilinda.com Home">
-                <div class="relative inline-flex flex-col items-center">
-                    <!-- Delicate top flourish -->
-                    <div class="mb-1">
-                        <svg width="60" height="6" viewBox="0 0 60 6" class="text-pink-500">
-                            <path d="M0 3 Q15 0, 30 3 Q45 6, 60 3" stroke="currentColor" stroke-width="0.8" fill="none"/>
-                            <circle cx="30" cy="3" r="1.5" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    
-                    <!-- Elegant script-style main text with flower accent -->
-                    <div class="flex items-center gap-2">
-                        <span class="text-pink-500 text-base sm:text-lg">❀</span>
-                        <span class="font-serif text-2xl sm:text-3xl md:text-4xl font-medium italic text-gray-900 tracking-wide group-hover:text-rose-700 transition-colors duration-300" style="font-family: Georgia, serif;">
-                            Mutesilinda
-                        </span>
-                        <span class="text-pink-500 text-base sm:text-lg">❀</span>
-                    </div>
-                    
-                    <!-- Delicate bottom flourish with .com -->
-                    <div class="mt-0.5 flex flex-col items-center gap-0.5">
-                        <div class="flex items-center gap-1.5">
-                            <div class="w-8 h-px bg-pink-400"></div>
-                            <span class="font-sans text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-pink-600 font-medium">
-                                .com
-                            </span>
-                            <div class="w-8 h-px bg-pink-400"></div>
-                        </div>
-                        
-                        <!-- Tiny decorative dots -->
-                        <div class="flex items-center gap-1 mt-0.5">
-                            <span class="w-1 h-1 rounded-full bg-pink-400"></span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
-                            <span class="w-1 h-1 rounded-full bg-pink-400"></span>
-                        </div>
-                    </div>
-                </div>
+                <span class="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-gray-900 tracking-wide group-hover:text-rose-700 transition-colors duration-300">
+                    Mutesilinda
+                </span>
             </a>
 
             <!-- Menu Button -->
