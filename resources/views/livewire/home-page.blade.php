@@ -6,8 +6,8 @@
             <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-center pt-2 lg:pt-3 pb-0">
                 {{-- Text Content --}}
                 <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1 animate-fadeIn">
-                    {{-- Hero Title with mobile-optimized sizes --}}
-                    <h1 class="font-serif -tracking-[0.02em] leading-[0.9] sm:leading-[0.95] text-[48px] sm:text-[62px] md:text-[76px] lg:text-[90px] xl:text-[104px] 2xl:text-[116px]">
+                    {{-- Hero Title with mobile-optimized sizes - 50% larger --}}
+                    <h1 class="font-serif -tracking-[0.02em] leading-[0.9] sm:leading-[0.95] text-[72px] sm:text-[93px] md:text-[114px] lg:text-[135px] xl:text-[156px] 2xl:text-[174px]">
                         <span class="block text-gray-600 font-light">{{ $heroSection->greeting }}</span>
                         <span class="block mt-2 sm:mt-3 bg-gradient-to-r from-gray-900 via-rose-900 to-gray-900 bg-clip-text text-transparent font-bold tracking-tight">{{ $heroSection->name }}</span>
                     </h1>
