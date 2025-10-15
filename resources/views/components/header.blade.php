@@ -1,12 +1,9 @@
 @php
-    $affiliations = [
-        ['name' => 'Adalci Advocates', 'url' => 'https://adalci.co.ug/our-team/'],
-        ['name' => 'FG Foundation', 'url' => 'https://fgfoundation.africa'],
-        ['name' => 'Bold Woman Fund', 'url' => 'https://www.theboldwomanfund.com/thefounders'],
-        ['name' => 'Bold in Africa', 'url' => 'https://www.boldinafrica.com/aboutus'],
-        ['name' => 'The Citizen Report–Uganda', 'url' => 'https://thecitizenreport.ug'],
-        ['name' => '32 Degrees East', 'url' => 'https://32east.org'],
-    ];
+    use App\Models\MenuItem;
+    use App\Models\Affiliation;
+    
+    $menuItems = MenuItem::where('is_active', true)->orderBy('order')->get();
+    $affiliations = Affiliation::where('is_active', true)->orderBy('order')->get();
 @endphp
 
 <header x-data="{ 
@@ -88,72 +85,49 @@ class="relative z-[100] transition-colors duration-300">
             <!-- Center menu vertically and horizontally -->
             <div class="flex-1 flex items-center justify-center py-8 sm:py-0">
                 <nav class="space-y-6 sm:space-y-8 text-center w-full">
-                    <!-- Home -->
-                    <a href="/" @click="isOverlayOpen = false" class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200">
-                        <span class="relative inline-block">
-                            Home
-                            <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                        </span>
-                    </a>
-
-                    <!-- About -->
-                    <a href="/about" @click="isOverlayOpen = false" class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200">
-                        <span class="relative inline-block">
-                            About
-                            <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                        </span>
-                    </a>
-
-                    <!-- Affiliations -->
-                    <div class="space-y-4">
-                        <button
-                            @click="isAffiliationsOpen = !isAffiliationsOpen"
-                            class="group block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200 focus:outline-none outline-none mx-auto min-h-[44px] flex items-center justify-center"
-                        >
-                            <span class="relative inline-block">
-                                Affiliations
-                                <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                            </span>
-                        </button>
-
-                        <div x-show="isAffiliationsOpen" x-transition class="space-y-3 mt-4 text-center" style="display: none;">
-                            @foreach($affiliations as $affiliation)
-                                <a
-                                    href="{{ $affiliation['url'] }}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="block text-lg md:text-xl text-white/70 hover:text-white transition-colors"
-                                    @click="isOverlayOpen = false"
+                    @foreach($menuItems as $menuItem)
+                        @if($menuItem->has_dropdown)
+                            <!-- Menu Item with Dropdown (Affiliations) -->
+                            <div class="space-y-4">
+                                <button
+                                    @click="isAffiliationsOpen = !isAffiliationsOpen"
+                                    class="group block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200 focus:outline-none outline-none mx-auto min-h-[44px] flex items-center justify-center"
                                 >
-                                    {{ $affiliation['name'] }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
+                                    <span class="relative inline-block">
+                                        {{ $menuItem->label }}
+                                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
+                                    </span>
+                                </button>
 
-                    <!-- Thinking About -->
-                    <a href="/blog" @click="isOverlayOpen = false" class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200">
-                        <span class="relative inline-block">
-                            Thinking About
-                            <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                        </span>
-                    </a>
-
-                    <!-- Research Interests -->
-                    <a href="/research-interests" @click="isOverlayOpen = false" class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200">
-                        <span class="relative inline-block">
-                            Research Interests
-                            <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                        </span>
-                    </a>
-
-                    <!-- Get in Touch -->
-                    <a href="/contact" @click="isOverlayOpen = false" class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200">
-                        <span class="relative inline-block">
-                            Get in Touch
-                            <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                        </span>
-                    </a>
+                                <div x-show="isAffiliationsOpen" x-transition class="space-y-3 mt-4 text-center" style="display: none;">
+                                    @foreach($affiliations as $affiliation)
+                                        <a
+                                            href="{{ $affiliation->url }}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="block text-lg md:text-xl text-white/70 hover:text-white transition-colors"
+                                            @click="isOverlayOpen = false"
+                                        >
+                                            {{ $affiliation->name }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @else
+                            <!-- Regular Menu Item -->
+                            <a 
+                                href="{{ $menuItem->url }}" 
+                                @click="isOverlayOpen = false" 
+                                class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200"
+                                @if($menuItem->is_external) target="_blank" rel="noopener noreferrer" @endif
+                            >
+                                <span class="relative inline-block">
+                                    {{ $menuItem->label }}
+                                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
+                                </span>
+                            </a>
+                        @endif
+                    @endforeach
                 </nav>
             </div>
             <div class="mt-auto pt-12 text-[9px] md:text-[10px] tracking-widest uppercase text-white/60 text-center">

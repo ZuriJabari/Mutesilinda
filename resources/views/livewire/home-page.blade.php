@@ -1,5 +1,6 @@
 <div>
     {{-- Hero Section --}}
+    @if($heroSection)
     <section class="relative bg-gradient-to-b from-white via-white to-gray-50/30 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-8 pb-4 sm:pb-6 lg:pb-0">
             <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-center pt-2 lg:pt-3 pb-0">
@@ -7,13 +8,13 @@
                 <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1 animate-fadeIn">
                     {{-- Hero Title with mobile-optimized sizes --}}
                     <h1 class="font-serif -tracking-[0.02em] leading-[0.9] sm:leading-[0.95] text-[48px] sm:text-[62px] md:text-[76px] lg:text-[90px] xl:text-[104px] 2xl:text-[116px]">
-                        <span class="block text-gray-600 font-light">Hello, I'm</span>
-                        <span class="block mt-2 sm:mt-3 bg-gradient-to-r from-gray-900 via-rose-900 to-gray-900 bg-clip-text text-transparent font-bold tracking-tight">Linda Mutesi!</span>
+                        <span class="block text-gray-600 font-light">{{ $heroSection->greeting }}</span>
+                        <span class="block mt-2 sm:mt-3 bg-gradient-to-r from-gray-900 via-rose-900 to-gray-900 bg-clip-text text-transparent font-bold tracking-tight">{{ $heroSection->name }}</span>
                     </h1>
 
                     {{-- Hero Subtitle --}}
                     <p class="text-base sm:text-lg md:text-xl lg:text-[22px] text-gray-600 leading-relaxed max-w-4xl mx-auto lg:mx-0 px-2 sm:px-0 font-light">
-                        I work with artists, entrepreneurs, and civic leaders to grow opportunity across Uganda and beyond — nurturing creativity, championing women‑ and youth‑led enterprises, and advancing African philanthropy. This blog is where I bring these journeys together — reflections, behind‑the‑scenes insights, and conversations with fellow creatives. I invite you to join me on this journey.
+                        {{ $heroSection->description }}
                     </p>
                 </div>
 
@@ -22,8 +23,8 @@
                     <div class="relative w-full max-w-md mx-auto lg:max-w-none group">
                         <div class="absolute -inset-4 bg-gradient-to-r from-rose-100/40 via-pink-100/40 to-purple-100/40 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <img 
-                            src="/images/linda-hero.png" 
-                            alt="Linda Mutesi" 
+                            src="{{ $heroSection->image_path }}" 
+                            alt="{{ $heroSection->name }}" 
                             class="relative w-full h-auto object-contain transform transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                     </div>
@@ -31,92 +32,88 @@
             </div>
         </div>
     </section>
+    @endif
 
     {{-- Mobile-optimized quick-links --}}
     <section class="w-full bg-gradient-to-b from-[#F6F1EE] to-[#F3EEE9] relative" x-data="{ emailRevealed: false, affiliationsExpanded: false }">
         <div class="w-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-stretch text-center text-gray-900 gap-0">
-                {{-- Column 1 - Affiliations --}}
-                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-visible">
-                    <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <button @click="affiliationsExpanded = !affiliationsExpanded" class="relative block h-full w-full flex flex-col items-center justify-center cursor-pointer">
-                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-rose-700 transition-all duration-300 font-semibold">Affiliations</span>
-                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-rose-800 transition-all duration-300 transform group-hover:scale-105">Organizations I Work With</span>
-                        <svg 
-                            class="w-5 h-5 mt-2 transition-transform duration-300" 
-                            :class="affiliationsExpanded ? 'rotate-180' : ''"
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                        >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                </div>
-
-                {{-- Column 2 - Thinking About --}}
-                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#EDE8F0] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <a href="/blog" class="relative block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-purple-700 transition-all duration-300 font-semibold">Thinking About</span>
-                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-purple-800 transition-all duration-300 transform group-hover:scale-105">Reflections & Insights</span>
-                    </a>
-                </div>
-
-                {{-- Column 3 - Research Interests --}}
-                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#E7EFEA] hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <a href="/research-interests" class="relative block h-full w-full flex flex-col items-center justify-center">
-                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-green-700 transition-all duration-300 font-semibold">Research</span>
-                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-green-800 transition-all duration-300 transform group-hover:scale-105">Research Interests</span>
-                    </a>
-                </div>
-
-                {{-- Column 4 - Get in Touch with Email Reveal --}}
-                <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 bg-[#F3EEE9] hover:bg-white hover:shadow-lg h-full text-center flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative block h-full w-full max-w-sm flex flex-col items-center justify-center">
-                        <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-pink-700 transition-all duration-300 font-semibold">Get in Touch</span>
-                        <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-pink-800 transition-all duration-300 transform group-hover:scale-105">Let's Connect</span>
-
-                        <div class="mt-4 sm:mt-5 w-full">
-                            <template x-if="!emailRevealed">
-                                <button
-                                    @click="emailRevealed = true"
-                                    class="group relative w-full px-4 sm:px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white font-medium text-sm sm:text-base hover:shadow-xl hover:shadow-rose-500/30 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 min-h-[44px] overflow-hidden"
+                @foreach($quickLinks as $index => $link)
+                    @if($link->label === 'Affiliations')
+                        {{-- Affiliations with dropdown --}}
+                        <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-visible" style="background-color: {{ $link->bg_color }}">
+                            <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <button @click="affiliationsExpanded = !affiliationsExpanded" class="relative block h-full w-full flex flex-col items-center justify-center cursor-pointer">
+                                <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-rose-700 transition-all duration-300 font-semibold">{{ $link->label }}</span>
+                                <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight group-hover:text-rose-800 transition-all duration-300 transform group-hover:scale-105">{{ $link->title }}</span>
+                                <svg 
+                                    class="w-5 h-5 mt-2 transition-transform duration-300" 
+                                    :class="affiliationsExpanded ? 'rotate-180' : ''"
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
                                 >
-                                    <span class="relative z-10 flex items-center justify-center gap-2">
-                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                        </svg>
-                                        Send Me an Email
-                                    </span>
-                                    <span class="absolute inset-0 bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                                    <span class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                                </button>
-                            </template>
-                            <template x-if="emailRevealed">
-                                <div class="animate-fadeIn">
-                                    <a
-                                        href="mailto:linda@mutesilinda.com"
-                                        class="block w-full px-3 sm:px-4 py-3 rounded-full bg-white border-2 border-rose-500 text-rose-700 font-medium text-xs sm:text-sm hover:bg-rose-50 transition-all duration-300 transform hover:-translate-y-0.5 min-h-[44px] flex items-center justify-center gap-2"
-                                    >
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                        </svg>
-                                        linda@mutesilinda.com
-                                    </a>
-                                    <button
-                                        @click="emailRevealed = false"
-                                        class="mt-2 text-xs text-gray-500 hover:text-gray-700 underline transition-colors"
-                                    >
-                                        Hide
-                                    </button>
-                                </div>
-                            </template>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
                         </div>
-                    </div>
-                </div>
+                    @elseif($link->label === 'Get in Touch')
+                        {{-- Get in Touch with Email Reveal --}}
+                        <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 hover:bg-white hover:shadow-lg h-full text-center flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden" style="background-color: {{ $link->bg_color }}">
+                            <div class="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="relative block h-full w-full max-w-sm flex flex-col items-center justify-center">
+                                <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-pink-700 transition-all duration-300 font-semibold">{{ $link->label }}</span>
+                                <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-pink-800 transition-all duration-300 transform group-hover:scale-105">{{ $link->title }}</span>
+
+                                <div class="mt-4 sm:mt-5 w-full">
+                                    <template x-if="!emailRevealed">
+                                        <button
+                                            @click="emailRevealed = true"
+                                            class="group relative w-full px-4 sm:px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white font-medium text-sm sm:text-base hover:shadow-xl hover:shadow-rose-500/30 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 min-h-[44px] overflow-hidden"
+                                        >
+                                            <span class="relative z-10 flex items-center justify-center gap-2">
+                                                <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                                </svg>
+                                                Send Me an Email
+                                            </span>
+                                            <span class="absolute inset-0 bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                                            <span class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                                        </button>
+                                    </template>
+                                    <template x-if="emailRevealed">
+                                        <div class="animate-fadeIn">
+                                            <a
+                                                href="mailto:linda@mutesilinda.com"
+                                                class="block w-full px-3 sm:px-4 py-3 rounded-full bg-white border-2 border-rose-500 text-rose-700 font-medium text-xs sm:text-sm hover:bg-rose-50 transition-all duration-300 transform hover:-translate-y-0.5 min-h-[44px] flex items-center justify-center gap-2"
+                                            >
+                                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                                </svg>
+                                                linda@mutesilinda.com
+                                            </a>
+                                            <button
+                                                @click="emailRevealed = false"
+                                                class="mt-2 text-xs text-gray-500 hover:text-gray-700 underline transition-colors"
+                                            >
+                                                Hide
+                                            </button>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        {{-- Regular Quick Link --}}
+                        <div class="px-4 sm:px-6 py-6 sm:py-8 transition-all duration-500 hover:bg-white hover:shadow-lg h-full flex flex-col items-center justify-center min-h-[120px] sm:min-h-[140px] group relative overflow-hidden" style="background-color: {{ $link->bg_color }}">
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <a href="{{ $link->url }}" class="relative block h-full w-full flex flex-col items-center justify-center">
+                                <span class="block text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-500 group-hover:text-purple-700 transition-all duration-300 font-semibold">{{ $link->label }}</span>
+                                <span class="mt-3 sm:mt-4 block font-serif text-lg sm:text-xl md:text-[21px] font-semibold tracking-wide text-gray-900 leading-tight px-2 group-hover:text-purple-800 transition-all duration-300 transform group-hover:scale-105">{{ $link->title }}</span>
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
             </div>
 
             {{-- Simple Affiliations List --}}
@@ -132,12 +129,9 @@
             >
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-center sm:text-left">
-                        <li><a href="https://adalci.co.ug/our-team/" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">Adalci Advocates</a></li>
-                        <li><a href="https://fgfoundation.africa" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">FG Foundation</a></li>
-                        <li><a href="https://www.theboldwomanfund.com/thefounders" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">Bold Woman Fund</a></li>
-                        <li><a href="https://www.boldinafrica.com/aboutus" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">Bold in Africa</a></li>
-                        <li><a href="https://thecitizenreport.ug" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">The Citizen Report–Uganda</a></li>
-                        <li><a href="https://32east.org" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">32 Degrees East</a></li>
+                        @foreach($affiliations as $affiliation)
+                            <li><a href="{{ $affiliation->url }}" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">{{ $affiliation->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
