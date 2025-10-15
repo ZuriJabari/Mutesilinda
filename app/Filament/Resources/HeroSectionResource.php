@@ -53,8 +53,10 @@ class HeroSectionResource extends Resource
                         '1:1',
                     ])
                     ->maxSize(5120)
-                    ->helperText('Upload a hero image (max 5MB). Recommended size: 1200x800px')
-                    ->columnSpanFull(),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg'])
+                    ->helperText('Upload a hero image (max 5MB). Recommended size: 1200x800px. Formats: JPG, PNG, WebP')
+                    ->columnSpanFull()
+                    ->required(false),
                 Forms\Components\TextInput::make('order')
                     ->numeric()
                     ->default(0)
