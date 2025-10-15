@@ -17,6 +17,10 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\HeroSectionResource;
+use App\Filament\Resources\MenuItemResource;
+use App\Filament\Resources\QuickLinkResource;
+use App\Filament\Resources\AffiliationResource;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -30,7 +34,12 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
+            ->resources([
+                HeroSectionResource::class,
+                MenuItemResource::class,
+                QuickLinkResource::class,
+                AffiliationResource::class,
+            ])
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
