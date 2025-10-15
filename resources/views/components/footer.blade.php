@@ -15,10 +15,10 @@
 
 <footer class="bg-black text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Follow Linda Section -->
+        <!-- Follow Me Section -->
         <div class="py-12 border-b border-gray-800">
             <div class="text-center">
-                <h3 class="text-2xl md:text-3xl font-bold mb-8">Follow Linda</h3>
+                <h3 class="text-2xl md:text-3xl font-bold mb-8">Follow Me</h3>
                 
                 <div class="flex justify-center space-x-6">
                     @foreach($socialLinks as $social)
@@ -27,7 +27,7 @@
                             target="_blank"
                             rel="noopener noreferrer"
                             class="p-3 bg-gray-800 rounded-full hover:bg-amber-600 transition-colors duration-200 group"
-                            aria-label="Follow Linda on {{ $social['name'] }}"
+                            aria-label="Follow me on {{ $social['name'] }}"
                         >
                             <div class="text-gray-300 group-hover:text-white transition-colors">
                                 {!! $social['icon'] !!}
