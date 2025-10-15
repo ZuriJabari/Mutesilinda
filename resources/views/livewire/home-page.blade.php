@@ -6,9 +6,9 @@
                 {{-- Text Content --}}
                 <div class="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 text-black order-2 lg:order-1 animate-fadeIn">
                     {{-- Hero Title with mobile-optimized sizes --}}
-                    <h1 class="font-serif font-semibold -tracking-[0.01em] leading-[0.85] sm:leading-tight">
-                        <span class="block text-[27px] sm:text-[36px] md:text-[45px] lg:text-[54px] xl:text-[63px] text-gray-800">Hello, I'm</span>
-                        <span class="block text-[36px] sm:text-[45px] md:text-[54px] lg:text-[63px] xl:text-[72px] 2xl:text-[79px] mt-1 sm:mt-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">Linda Mutesi!</span>
+                    <h1 class="font-serif font-normal -tracking-[0.01em] leading-[0.85] sm:leading-tight">
+                        <span class="block text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] xl:text-[54px] text-gray-700">Hello, I'm</span>
+                        <span class="block text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] 2xl:text-[70px] mt-1 sm:mt-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent font-medium">Linda Mutesi!</span>
                     </h1>
 
                     {{-- Hero Subtitle --}}
