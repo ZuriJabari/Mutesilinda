@@ -20,11 +20,18 @@
 class="relative z-[100] transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20">
-            <!-- Logo - Simple & Elegant -->
-            <a href="/" class="flex-shrink-0 select-none py-2 group" aria-label="Mutesilinda.com Home">
-                <span class="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-gray-900 tracking-wide group-hover:text-rose-700 transition-colors duration-300">
-                    Mutesilinda
-                </span>
+            <!-- Logo - Luxurious & Elegant -->
+            <a href="/" class="flex-shrink-0 select-none py-2 group relative" aria-label="Mutesilinda.com Home">
+                <div class="relative">
+                    <!-- Main Logo Text -->
+                    <span class="block font-serif text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 tracking-[0.15em] group-hover:text-rose-700 transition-all duration-500">
+                        MUTESILINDA
+                    </span>
+                    <!-- Elegant Underline -->
+                    <div class="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400/40 to-transparent group-hover:via-rose-600/60 transition-all duration-500"></div>
+                    <!-- Decorative Dot -->
+                    <span class="absolute -right-1 -top-1 w-1.5 h-1.5 rounded-full bg-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                </div>
             </a>
 
             <!-- Menu Button -->

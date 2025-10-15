@@ -39,13 +39,25 @@
         </div>
 
         <!-- Footer Links -->
-        <div class="py-8">
-            <div class="text-center">
+        <div class="py-12">
+            <div class="text-center space-y-6">
+                <!-- Footer Logo -->
+                <div class="mb-8">
+                    <a href="/" class="inline-block group">
+                        <div class="relative">
+                            <span class="block font-serif text-2xl md:text-3xl font-light text-white tracking-[0.15em] group-hover:text-rose-400 transition-all duration-500">
+                                MUTESILINDA
+                            </span>
+                            <div class="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400/40 to-transparent group-hover:via-rose-400/80 transition-all duration-500"></div>
+                        </div>
+                    </a>
+                </div>
+                
                 <p class="text-sm text-gray-400 mb-4">&copy; {{ date('Y') }} Linda Mutesi. All rights reserved.</p>
                 <div class="flex justify-center space-x-6">
-                    <a href="/privacy" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-                    <a href="/terms" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-                    <a href="/contact" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a>
+                    <a href="/privacy" class="text-gray-400 hover:text-rose-400 text-sm transition-colors">Privacy Policy</a>
+                    <a href="/terms" class="text-gray-400 hover:text-rose-400 text-sm transition-colors">Terms of Service</a>
+                    <a href="/contact" class="text-gray-400 hover:text-rose-400 text-sm transition-colors">Contact</a>
                 </div>
             </div>
         </div>
