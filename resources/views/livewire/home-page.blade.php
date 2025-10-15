@@ -112,6 +112,138 @@
         </div>
     </section>
 
+    {{-- Affiliations Section --}}
+    <section id="affiliations" class="py-12 sm:py-16 bg-white" x-data="{ expanded: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="text-xs sm:text-sm uppercase tracking-[0.2em] text-gray-500 font-semibold">Affiliations</div>
+                <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Organizations I Work With</h2>
+                <div class="mt-3 h-0.5 w-16 bg-gradient-to-r from-rose-600 to-pink-600 mx-auto rounded-full"></div>
+            </div>
+
+            {{-- Toggle Button --}}
+            <div class="text-center mb-8">
+                <button
+                    @click="expanded = !expanded"
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white font-medium hover:shadow-xl hover:shadow-rose-500/30 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105"
+                >
+                    <span x-text="expanded ? 'Hide Organizations' : 'View Organizations'"></span>
+                    <svg 
+                        class="w-5 h-5 transition-transform duration-300" 
+                        :class="expanded ? 'rotate-180' : ''"
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </div>
+
+            {{-- Affiliations Grid --}}
+            <div 
+                x-show="expanded"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-95"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-95"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+                {{-- Affiliation Card 1 --}}
+                <div class="bg-white border border-gray-200/60 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-rose-100 to-pink-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">African Philanthropy Forum</h3>
+                            <p class="text-sm text-gray-600">Board Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Affiliation Card 2 --}}
+                <div class="bg-white border border-gray-200/60 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Uganda Arts Trust</h3>
+                            <p class="text-sm text-gray-600">Executive Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Affiliation Card 3 --}}
+                <div class="bg-white border border-gray-200/60 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Women's Entrepreneurship Network</h3>
+                            <p class="text-sm text-gray-600">Advisory Board</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Affiliation Card 4 --}}
+                <div class="bg-white border border-gray-200/60 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Youth Leadership Initiative</h3>
+                            <p class="text-sm text-gray-600">Founding Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Affiliation Card 5 --}}
+                <div class="bg-white border border-gray-200/60 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">East African Creative Economy</h3>
+                            <p class="text-sm text-gray-600">Strategic Advisor</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Affiliation Card 6 --}}
+                <div class="bg-white border border-gray-200/60 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Community Development Foundation</h3>
+                            <p class="text-sm text-gray-600">Board Chair</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Featured Article Section --}}
     @if($featuredPost)
     <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50/30">
