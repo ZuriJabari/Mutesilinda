@@ -23,7 +23,7 @@
                     <div class="relative w-full max-w-md mx-auto lg:max-w-none group">
                         <div class="absolute -inset-4 bg-gradient-to-r from-rose-100/40 via-pink-100/40 to-purple-100/40 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <img 
-                            src="{{ $heroSection->image_path }}" 
+                            src="{{ str_starts_with($heroSection->image_path, 'http') ? $heroSection->image_path : (str_starts_with($heroSection->image_path, '/') ? $heroSection->image_path : asset('storage/' . $heroSection->image_path)) }}" 
                             alt="{{ $heroSection->name }}" 
                             class="relative w-full h-auto object-contain transform transition-transform duration-500 group-hover:scale-[1.02]"
                         />

@@ -39,9 +39,22 @@ class HeroSectionResource extends Resource
                     ->required()
                     ->rows(5)
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('image_path')
-                    ->maxLength(255)
-                    ->default('/images/linda-hero.png'),
+                Forms\Components\FileUpload::make('image_path')
+                    ->label('Hero Image')
+                    ->image()
+                    ->directory('hero-images')
+                    ->disk('public')
+                    ->visibility('public')
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->maxSize(5120)
+                    ->helperText('Upload a hero image (max 5MB). Recommended size: 1200x800px')
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('order')
                     ->numeric()
                     ->default(0)
@@ -56,6 +69,11 @@ class HeroSectionResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image_path')
+                    ->label('Image')
+                    ->disk('public')
+                    ->width(80)
+                    ->height(60),
                 Tables\Columns\TextColumn::make('greeting')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
