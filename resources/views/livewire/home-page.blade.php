@@ -132,12 +132,12 @@
             >
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-center sm:text-left">
-                        <li class="text-gray-700 hover:text-gray-900 transition-colors">African Philanthropy Forum</li>
-                        <li class="text-gray-700 hover:text-gray-900 transition-colors">Uganda Arts Trust</li>
-                        <li class="text-gray-700 hover:text-gray-900 transition-colors">Women's Entrepreneurship Network</li>
-                        <li class="text-gray-700 hover:text-gray-900 transition-colors">Youth Leadership Initiative</li>
-                        <li class="text-gray-700 hover:text-gray-900 transition-colors">East African Creative Economy</li>
-                        <li class="text-gray-700 hover:text-gray-900 transition-colors">Community Development Foundation</li>
+                        <li><a href="https://adalci.co.ug/our-team/" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">Adalci Advocates</a></li>
+                        <li><a href="https://fgfoundation.africa" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">FG Foundation</a></li>
+                        <li><a href="https://www.theboldwomanfund.com/thefounders" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">Bold Woman Fund</a></li>
+                        <li><a href="https://www.boldinafrica.com/aboutus" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">Bold in Africa</a></li>
+                        <li><a href="https://thecitizenreport.ug" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">The Citizen Report–Uganda</a></li>
+                        <li><a href="https://32east.org" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-rose-700 hover:underline transition-colors">32 Degrees East</a></li>
                     </ul>
                 </div>
             </div>
