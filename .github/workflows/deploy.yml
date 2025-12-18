@@ -52,13 +52,24 @@ jobs:
           protocol: tcp4
           debug: true
           request_pty: true
+          command_timeout: 30m
           script: |
+            set -e
+            echo "=== Starting deployment ==="
             whoami
             pwd
-            cd ~/public_html/MutesiDev
-            composer install --optimize-autoloader --no-dev
-            php artisan migrate --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-            php artisan storage:link || true
+            echo "=== Changing to app directory ==="
+            cd ~/public_html/MutesiDev || exit 1
+            echo "=== Installing dependencies ==="
+            /usr/local/bin/ea-php83 /opt/cpanel/composer/bin/composer install --optimize-autoloader --no-dev --no-interaction
+            echo "=== Running migrations ==="
+            /usr/local/bin/ea-php83 artisan migrate --force
+            echo "=== Caching config ==="
+            /usr/local/bin/ea-php83 artisan config:cache
+            echo "=== Caching routes ==="
+            /usr/local/bin/ea-php83 artisan route:cache
+            echo "=== Caching views ==="
+            /usr/local/bin/ea-php83 artisan view:cache
+            echo "=== Linking storage ==="
+            /usr/local/bin/ea-php83 artisan storage:link || true
+            echo "=== Deployment complete ==="
