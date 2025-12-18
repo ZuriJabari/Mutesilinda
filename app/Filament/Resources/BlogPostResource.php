@@ -46,6 +46,7 @@ class BlogPostResource extends Resource
                         TiptapEditor::make('content')
                             ->required()
                             ->profile('default')
+                            ->helperText('Captions: add a Title to inline images/videos/YouTube embeds (use the Source tool to add title="Your caption" to <img>, <video>, or <iframe>).')
                             ->tools([
                                 'heading',
                                 'bullet-list',
@@ -105,6 +106,11 @@ class BlogPostResource extends Resource
                                 '1:1',
                             ])
                             ->maxSize(5120)
+                            ->columnSpanFull(),
+                        Forms\Components\Textarea::make('featured_image_caption')
+                            ->rows(2)
+                            ->maxLength(255)
+                            ->visible(fn (callable $get) => filled($get('featured_image')))
                             ->columnSpanFull(),
                     ]),
                 

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if (app()->environment('local') && ! app()->runningInConsole()) {
+            URL::forceRootUrl(request()->getSchemeAndHttpHost());
+
+            config([
+                'filesystems.disks.public.url' => request()->getSchemeAndHttpHost() . '/storage',
+            ]);
+
+            if (config('session.domain') === 'null') {
+                config([
+                    'session.domain' => null,
+                ]);
+            }
+        }
     }
 }

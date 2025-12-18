@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BlogPost extends Model
@@ -14,6 +15,7 @@ class BlogPost extends Model
         'excerpt',
         'content',
         'featured_image',
+        'featured_image_caption',
         'is_published',
         'published_at',
         'meta_title',
@@ -24,6 +26,19 @@ class BlogPost extends Model
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];
+
+    public function getFeaturedImageAttribute($value)
+    {
+        if (! $value) {
+            return $value;
+        }
+
+        if (str_starts_with($value, 'http') || str_starts_with($value, '/')) {
+            return $value;
+        }
+
+        return Storage::disk('public')->url($value);
+    }
 
     protected static function boot()
     {

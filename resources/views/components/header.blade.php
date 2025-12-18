@@ -7,38 +7,59 @@
 @endphp
 
 <header x-data="{ 
-    isScrolled: false, 
     isOverlayOpen: false,
     isAffiliationsOpen: false,
+    isHidden: false,
+    lastScrollY: 0,
     init() {
+        this.lastScrollY = window.scrollY;
+
         window.addEventListener('scroll', () => {
-            this.isScrolled = window.scrollY > 50;
-        });
+            const currentY = window.scrollY;
+            const delta = currentY - this.lastScrollY;
+
+            if (this.isOverlayOpen) {
+                this.isHidden = false;
+                this.lastScrollY = currentY;
+                return;
+            }
+
+            if (currentY < 20) {
+                this.isHidden = false;
+            } else if (delta > 8 && currentY > 80) {
+                this.isHidden = true;
+            } else if (delta < -8) {
+                this.isHidden = false;
+            }
+
+            this.lastScrollY = currentY;
+        }, { passive: true });
     }
 }" 
-:class="isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'" 
-class="relative z-[100] transition-colors duration-300">
+:class="(isHidden && !isOverlayOpen) ? '-top-24' : 'top-0'" 
+class="fixed left-0 right-0 z-[100] bg-transparent transition-[top] duration-500 ease-out">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20">
             <!-- Logo - Luxurious & Elegant -->
             <a href="/" class="flex-shrink-0 select-none py-2 group relative" aria-label="Mutesilinda.com Home">
                 <div class="relative">
                     <!-- Main Logo Text -->
-                    <span class="block font-serif text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 tracking-[0.15em] group-hover:text-rose-700 transition-all duration-500">
-                        MUTESILINDA
+                    <span class="block font-sans text-[22px] sm:text-[26px] md:text-[30px] font-medium text-zinc-950 tracking-[0.14em] leading-none transition-colors duration-500 group-hover:text-rose-800">
+                        Mutesilinda<span class="text-rose-700 group-hover:text-rose-800 transition-colors duration-500">•</span>
                     </span>
-                    <!-- Elegant Underline -->
-                    <div class="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400/40 to-transparent group-hover:via-rose-600/60 transition-all duration-500"></div>
-                    <!-- Decorative Dot -->
-                    <span class="absolute -right-1 -top-1 w-1.5 h-1.5 rounded-full bg-rose-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                    <div class="mt-1 flex items-center gap-2 justify-start">
+                        <span class="h-px w-10 bg-rose-500/25"></span>
+                        <span class="text-[9px] sm:text-[10px] font-sans tracking-[0.26em] uppercase text-zinc-500 group-hover:text-rose-700 transition-colors duration-500">.com</span>
+                        <span class="h-px w-10 bg-rose-500/25"></span>
+                    </div>
                 </div>
             </a>
 
             <!-- Menu Button -->
             <button
                 @click="isOverlayOpen = !isOverlayOpen"
-                :class="isOverlayOpen ? 'text-white bg-black/20 backdrop-blur-sm' : 'text-black hover:bg-black/5'"
-                class="fixed top-4 right-4 md:top-6 md:right-6 z-[400] inline-flex items-center justify-center gap-2 md:gap-3 px-3 py-2 md:px-4 rounded-full text-xs sm:text-sm md:text-base tracking-widest uppercase transition-all duration-200 w-24 sm:w-28 md:w-32 min-h-[44px]"
+                :class="isOverlayOpen ? 'text-white bg-transparent border-transparent hover:bg-white/10' : 'text-zinc-950 bg-transparent border-transparent hover:bg-black/5'"
+                class="fixed top-4 right-4 md:top-6 md:right-6 z-[400] inline-flex items-center justify-center gap-2 md:gap-3 px-3 py-2 md:px-4 rounded-full border text-xs sm:text-sm md:text-base tracking-[0.18em] uppercase transition-all duration-200 w-24 sm:w-28 md:w-32 min-h-[44px]"
                 :aria-label="isOverlayOpen ? 'Close menu' : 'Open menu'"
                 :aria-expanded="isOverlayOpen"
             >
@@ -91,14 +112,14 @@ class="relative z-[100] transition-colors duration-300">
             <div class="flex items-center justify-between mb-8 sm:mb-0"></div>
             <!-- Center menu vertically and horizontally -->
             <div class="flex-1 flex items-center justify-center py-8 sm:py-0">
-                <nav class="space-y-6 sm:space-y-8 text-center w-full">
+                <nav class="space-y-7 sm:space-y-10 text-center w-full">
                     @foreach($menuItems as $menuItem)
                         @if($menuItem->has_dropdown)
                             <!-- Menu Item with Dropdown (Affiliations) -->
                             <div class="space-y-4">
                                 <button
                                     @click="isAffiliationsOpen = !isAffiliationsOpen"
-                                    class="group block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200 focus:outline-none outline-none mx-auto min-h-[44px] flex items-center justify-center"
+                                    class="group block text-xl sm:text-2xl md:text-3xl font-sans font-light uppercase tracking-[0.18em] leading-[1.05] text-white/90 hover:text-white transition-all duration-200 focus:outline-none outline-none mx-auto min-h-[44px] flex items-center justify-center"
                                 >
                                     <span class="relative inline-block">
                                         {{ $menuItem->label }}
@@ -112,7 +133,7 @@ class="relative z-[100] transition-colors duration-300">
                                             href="{{ $affiliation->url }}"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            class="block text-lg md:text-xl text-white/70 hover:text-white transition-colors"
+                                            class="block text-[11px] sm:text-xs md:text-sm font-sans font-light uppercase tracking-[0.18em] leading-relaxed text-white/70 hover:text-white transition-colors"
                                             @click="isOverlayOpen = false"
                                         >
                                             {{ $affiliation->name }}
@@ -122,34 +143,51 @@ class="relative z-[100] transition-colors duration-300">
                             </div>
                         @else
                             <!-- Regular Menu Item -->
-                            <a 
-                                href="{{ $menuItem->url }}" 
-                                @click="isOverlayOpen = false" 
-                                class="group block text-2xl md:text-3xl lg:text-4xl font-sans uppercase tracking-[0.2em] text-white/90 hover:text-white transition-all duration-200"
-                                @if($menuItem->is_external) target="_blank" rel="noopener noreferrer" @endif
-                            >
-                                <span class="relative inline-block">
-                                    {{ $menuItem->label }}
-                                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
-                                </span>
-                            </a>
+                            @if($menuItem->url === '/contact')
+                                <a
+                                    href="{{ $menuItem->url }}"
+                                    @click.prevent="$store.contact.open(); isOverlayOpen = false"
+                                    class="group block text-xl sm:text-2xl md:text-3xl font-sans font-light uppercase tracking-[0.18em] leading-[1.05] text-white/90 hover:text-white transition-all duration-200"
+                                >
+                                    <span class="relative inline-block">
+                                        {{ $menuItem->label }}
+                                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
+                                    </span>
+                                </a>
+                            @else
+                                <a 
+                                    href="{{ $menuItem->url }}" 
+                                    @click="isOverlayOpen = false" 
+                                    class="group block text-xl sm:text-2xl md:text-3xl font-sans font-light uppercase tracking-[0.18em] leading-[1.05] text-white/90 hover:text-white transition-all duration-200"
+                                    @if($menuItem->is_external) target="_blank" rel="noopener noreferrer" @endif
+                                >
+                                    <span class="relative inline-block">
+                                        {{ $menuItem->label }}
+                                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-white/50 transition-all duration-300 group-hover:w-3/4"></span>
+                                    </span>
+                                </a>
+                            @endif
                         @endif
                     @endforeach
                 </nav>
             </div>
-            <div class="mt-auto pt-12 text-[9px] md:text-[10px] tracking-widest uppercase text-white/60 text-center">
-                <span>© {{ date('Y') }} Linda Mutesi</span>
-                <span class="mx-3">•</span>
-                <a href="/privacy" class="hover:text-white">Privacy Policy</a>
-                <span class="mx-3">•</span>
-                <a
-                    href="https://index.ug"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:text-white"
-                >
-                    Made by Index Digital
-                </a>
+            <div class="mt-auto pt-12 text-[11px] md:text-[12px] tracking-[0.18em] uppercase text-white/60 text-center">
+                <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+                    <span>© {{ date('Y') }} Linda Mutesi</span>
+                    <span aria-hidden="true">•</span>
+                    <a href="/privacy" class="hover:text-white">Privacy Policy</a>
+                </div>
+
+                <div class="mt-3">
+                    <a
+                        href="https://index.ug"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:text-white"
+                    >
+                        Made by Index Digital
+                    </a>
+                </div>
             </div>
         </aside>
     </div>

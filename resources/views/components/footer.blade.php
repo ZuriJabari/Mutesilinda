@@ -13,12 +13,12 @@
     ];
 @endphp
 
-<footer class="bg-black text-white">
+<footer class="bg-[#0b1020] text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Follow Me Section -->
-        <div class="py-12 border-b border-gray-800">
+        <div class="py-12 border-b border-white/10">
             <div class="text-center">
-                <h3 class="text-2xl md:text-3xl font-bold mb-8">Follow Me</h3>
+                <h3 class="text-2xl md:text-3xl font-serif font-medium tracking-tight mb-8">Follow Me</h3>
                 
                 <div class="flex justify-center space-x-6">
                     @foreach($socialLinks as $social)
@@ -26,7 +26,7 @@
                             href="{{ $social['href'] }}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="p-3 bg-gray-800 rounded-full hover:bg-amber-600 transition-colors duration-200 group"
+                            class="p-3 bg-white/10 rounded-full hover:bg-rose-500/30 transition-colors duration-200 group"
                             aria-label="Follow me on {{ $social['name'] }}"
                         >
                             <div class="text-gray-300 group-hover:text-white transition-colors">
@@ -45,19 +45,24 @@
                 <div class="mb-8">
                     <a href="/" class="inline-block group">
                         <div class="relative">
-                            <span class="block font-serif text-2xl md:text-3xl font-light text-white tracking-[0.15em] group-hover:text-rose-400 transition-all duration-500">
-                                MUTESILINDA
+                            <span class="block font-sans text-[22px] sm:text-[26px] md:text-[30px] font-medium text-white tracking-[0.14em] leading-none transition-colors duration-500 group-hover:text-rose-200">
+                                Mutesilinda<span class="text-rose-200 transition-colors duration-500">•</span>
                             </span>
-                            <div class="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400/40 to-transparent group-hover:via-rose-400/80 transition-all duration-500"></div>
+                            <div class="mt-1 flex items-center gap-2 justify-center">
+                                <span class="h-px w-10 bg-rose-300/25"></span>
+                                <span class="text-[9px] sm:text-[10px] font-sans tracking-[0.26em] uppercase text-white/70 group-hover:text-rose-200 transition-colors duration-500">.com</span>
+                                <span class="h-px w-10 bg-rose-300/25"></span>
+                            </div>
                         </div>
                     </a>
                 </div>
                 
-                <p class="text-sm text-gray-400 mb-4">&copy; {{ date('Y') }} Linda Mutesi. All rights reserved.</p>
+                <p class="text-sm text-white/70 mb-4">&copy; {{ date('Y') }} Linda Mutesi. All rights reserved.</p>
                 <div class="flex justify-center space-x-6">
-                    <a href="/privacy" class="text-gray-400 hover:text-rose-400 text-sm transition-colors">Privacy Policy</a>
-                    <a href="/terms" class="text-gray-400 hover:text-rose-400 text-sm transition-colors">Terms of Service</a>
-                    <a href="/contact" class="text-gray-400 hover:text-rose-400 text-sm transition-colors">Contact</a>
+                    <a href="/privacy" class="text-white/70 hover:text-rose-300 text-sm transition-colors">Privacy Policy</a>
+                    <a href="/terms" class="text-white/70 hover:text-rose-300 text-sm transition-colors">Terms of Service</a>
+                    <a href="/contact" @click.prevent="$store.contact.open()" class="text-white/70 hover:text-rose-300 text-sm transition-colors">Contact</a>
+                    <a href="/admin" class="text-white/70 hover:text-rose-300 text-sm transition-colors">Admin</a>
                 </div>
             </div>
         </div>

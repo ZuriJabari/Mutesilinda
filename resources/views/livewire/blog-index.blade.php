@@ -1,24 +1,14 @@
 <div>
     {{-- Hero Section --}}
-    <section class="bg-gradient-to-br from-gray-50 to-gray-100 pt-24 md:pt-32 pb-16 md:pb-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <nav class="text-sm text-gray-500 mb-8">
-                <a href="/" class="hover:text-black transition-colors">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-gray-900 font-medium">Blog</span>
-            </nav>
-            
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-8 leading-tight">
-                Personal Reflections & Stories
-            </h1>
-            
-            <div class="max-w-3xl mx-auto">
-                <p class="text-lg md:text-xl leading-relaxed text-gray-700 font-medium">
-                    This blog is where I bring these journeys together. Here, you'll find personal reflections on my work as a lawyer, philanthropy student, and community collaborator; behind-the-scenes insights into the projects I am part of; and conversations with fellow creatives who are making a difference in their fields. At its core, this space is about storytelling—the kind that uplifts, challenges, and connects us.
-                </p>
-            </div>
-        </div>
-    </section>
+    <x-inner-hero
+        kicker="Thinking About"
+        title="Personal Reflections & Stories"
+        subtitle="This blog is where I bring these journeys together. Here, you'll find personal reflections on my work as a lawyer, philanthropy student, and community collaborator; behind-the-scenes insights into the projects I am part of; and conversations with fellow creatives who are making a difference in their fields. At its core, this space is about storytelling—the kind that uplifts, challenges, and connects us."
+        :breadcrumbs="[
+            ['label' => 'Home', 'url' => '/'],
+            ['label' => 'Blog'],
+        ]"
+    />
 
     {{-- Blog Posts Section --}}
     <section class="py-16 md:py-20 bg-white">
@@ -37,7 +27,7 @@
                                 @if($post->featured_image)
                                     <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
                                 @else
-                                    <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                                    <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
                                         <span class="text-gray-400 text-4xl">📝</span>
                                     </div>
                                 @endif

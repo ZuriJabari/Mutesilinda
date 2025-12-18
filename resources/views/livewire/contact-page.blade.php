@@ -1,9 +1,17 @@
 <div>
     {{-- The Master doesn't talk, he acts. --}}
-    <section class="bg-gradient-to-br from-gray-50 to-gray-100 pt-24 md:pt-32 pb-16">
+    <x-inner-hero
+        kicker="Contact"
+        title="Get in Touch"
+        subtitle="I'd love to hear from you. Send me a message and I'll get back to you as soon as possible."
+        :breadcrumbs="[
+            ['label' => 'Home', 'url' => '/'],
+            ['label' => 'Contact'],
+        ]"
+    />
+
+    <section class="bg-white py-16">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-8 text-center">Get in Touch</h1>
-            <p class="text-xl text-gray-700 text-center mb-12">I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.</p>
 
             @if($success)
                 <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
@@ -50,7 +58,7 @@
 
                 <button 
                     type="submit"
-                    class="w-full bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold py-4 rounded-full hover:from-rose-700 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-0.5"
+                    class="w-full bg-rose-700 text-white font-semibold py-4 rounded-full hover:bg-rose-800 transition-all duration-300"
                 >
                     Send Message
                 </button>

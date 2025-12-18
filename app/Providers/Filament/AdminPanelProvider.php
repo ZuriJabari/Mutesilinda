@@ -23,6 +23,11 @@ use App\Filament\Resources\HeroSectionResource;
 use App\Filament\Resources\MenuItemResource;
 use App\Filament\Resources\QuickLinkResource;
 use App\Filament\Resources\AffiliationResource;
+use App\Filament\Resources\BookResource;
+use App\Filament\Resources\PodcastResource;
+use App\Filament\Resources\LibraryLoanResource;
+use App\Filament\Resources\LibraryHoldResource;
+use App\Filament\Resources\UserResource;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -43,6 +48,11 @@ class AdminPanelProvider extends PanelProvider
                 MenuItemResource::class,
                 QuickLinkResource::class,
                 AffiliationResource::class,
+                UserResource::class,
+                BookResource::class,
+                PodcastResource::class,
+                LibraryLoanResource::class,
+                LibraryHoldResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
